@@ -1,7 +1,7 @@
 var lastbrand;
 var tabnum=1;
 var artname='';
-var flNewModeCGI=false;
+//var flNewModeCGI=false;
 
 function fnIfStr(Cond, sTrue, sFalse){   //аналог из делфи
    if (Cond) { 
