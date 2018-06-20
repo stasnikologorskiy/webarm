@@ -1,0 +1,1221 @@
+img {border:0;}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.st, .st td, #tcdbackground, #wsrcbackdiv, #waresearchdiv div, .swinner, #mainheaderwrap, 
+  #wareinfodiv, .iframebody, #tebottompanel, #TinyEditDIV, #TinyEditInfoFilesDIV, #TinyEditActionFilesDIV, .wareinfoimgdiv {
+  background-color: #ddd;
+}
+
+h2 {
+  color: #254286;
+}
+
+
+body {
+  background-color: #071B57;
+  font-family: Arial, Helvetica, SunSans-Regular, sans-serif;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+}
+
+#headerdiv {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin: 0;
+  height: 75px;
+  overflow: hidden;
+  background-image: url('images/gray_line.png');
+}
+
+#wsrcbackdiv {
+         position: absolute;
+         left: 10px;
+         right: 16px;
+         height: 15px;
+         bottom: 0px;
+}
+
+#vladlogo {
+  position: absolute;
+  left: 14px;
+  top: 22px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+#leftmenudiv {
+  position: absolute;
+  float: left;
+  width: 190px;
+  top: 95px;
+  bottom: 25px;
+  left: 15px;
+  background-image: url('images/mainmenu/middle-window-wide.png');
+  background-repeat: repeat-y;
+}
+
+#lefttopmenuimgwide, #lefttopmenuimgshort {
+  position: absolute;
+  z-index: 1;
+  top: -6px;
+  left: 0px;
+}
+
+#autdiv_ord {
+  position: relative;
+  left: 0;
+  top: 40px;
+  width: 185px;
+/*   height: 125px; */
+  text-align: right;
+  color: #EF1821;
+  font-size: 15px;
+  z-index: 100;
+  margin: 0px;
+  overflow: hidden;
+}
+
+#aaformdiv #autdiv_ord {
+  top: 0px;
+}
+
+
+.input1 {
+  width: 120px;
+  height: 25px;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 5px;
+}
+
+a.leftmenuitem {
+  margin: 0 10px 0 0;
+  display: block;
+  position: relative;
+  float: right;
+  clear: both;
+  vertical-align: middle;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+  z-index: 100;
+}
+a.leftmenuitem img {
+  float: right;
+         margin: 8px 0 0 10px;
+}
+a.leftmenuitem span {
+         display: block;
+  float: right;
+}
+
+a.leftmenuitem:hover {
+        color: #ff0;
+}
+a.leftmenuitem .i2 {
+         display: none;
+}
+a.leftmenuitem:hover .i2 {
+         display: block;
+}
+a.leftmenuitem:hover .i1 {
+         display: none;
+}
+
+.curmenuitem {
+  color: #FF0 !important;
+  font-weight: bold;
+}
+
+#leftpanelbutton {
+  margin-top: 20px;
+}
+
+#leftpanelbutton:hover {
+  background-position : right center;
+}
+
+#leftbottommenuimgwide, #leftbottommenuimgshort {
+  position: absolute;
+         bottom: -10px;
+         left: 0px;
+}
+
+#leftbottommenuimgwide {
+         display: block;
+         overflow: hidden;
+         float: left;
+         width: 190px;
+         height: 81px;
+}
+
+#leftbottommenuimgwide img {
+         float: left;
+}
+
+#leftbottommenuimgwide:hover img {
+         float: right;
+}
+
+#maindiv {
+  position: absolute;
+  overflow: hidden  !important;
+  top: 90px;
+  right: 15px;
+  bottom: 15px;
+  font-size: 11px;
+}
+
+#waresearchtable, #waresearchtable tr, #waresearchtable tr td {
+  font-size: 13px;
+         padding: 0px;
+         margin: 0px;
+}
+
+#usernamediv {
+/*        position: absolute;
+        top: 40px;
+        left: 240px;*/
+        position: relative;
+  float: right;
+  text-align: right;
+        width:500px;
+        top: 5px;
+        font-weight: bold;
+        font-size: 16px;
+        margin-right: 15px;
+}
+
+
+#WSRtableheader, .headerrow td {
+  background-image: url('images/gray_line.png');
+}
+
+#WSRtableheader td {
+  background-color: transparent;
+  background-image: none;
+}
+
+
+#WSRtableheader {
+  position: relative;
+  left: 5px;
+  z-index: 20;
+  table-layout: fixed;
+  height: 19px;
+  border: none;
+/*
+  border-top: 1px solid #FF0;
+  white-space: nowrap;
+  margin: 0px 0 0 7px;
+*/
+}
+
+#WSRtableheader td {
+  height: 19px;
+  white-space: nowrap;
+  border: none;
+}
+
+#WSRwrapper {
+  padding: 10px 0 0 0;
+  position: relative;
+  margin-bottom: 15px;
+  display: none;
+}
+
+#searchslider {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+/*  background-color: red; */
+  display: none;
+  cursor: n-resize;
+  z-index: 40;
+}
+
+#WSRwrapper h1 {
+  margin: 0px;
+}
+
+/*#WSRwrapper*/ h1 span{
+  color: #080;
+}
+
+
+#WSRtableheader td{
+  height: 19px;
+  white-space: nowrap;
+}
+
+#WSRcontentdiv {
+ position:relative;
+        margin: 0px;
+        padding: 0px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+/*        height: 152px; */
+}
+
+#WSRtablecontent {
+  position: relative;
+  left: 5px;
+  z-index: 20;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#WSRclosebutton {
+  display: block;
+  float: right;
+  clear: both;
+  height: 16px;
+  width: 16px;
+  background-image: url("/images/close.png");
+  background-position: 0 0;
+}
+
+#WSRclosebutton:hover {
+  background-position: 100% 0;
+}
+/* конец - вывод результатов поиска */
+
+
+#srchl {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  bottom: 0px;
+  width: 10px;
+  background-image: url('/images/window/left.png');
+}
+
+
+#tcdbackground {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  background-image: url('/images/window/left.png');
+  background-repeat: repeat-y;
+
+}
+
+#mfb, #smfb {
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  right: 10px;
+  height: 10px;
+  background-image: url('/images/window/bottom.png');
+  z-index: 40;
+}
+
+#mfb {
+  right: 10px;
+  bottom: 0px;
+}
+
+#mflb, #smflb {
+  position: absolute;
+  bottom: -10px;
+  left: 0px;
+  z-index: 40;
+}
+
+#mflb{
+  bottom: 0px;
+}
+
+#smfrb, #mfrb {
+  position: absolute;
+  bottom: -10px;
+  right: 0px;
+  z-index: 40;
+}
+#mfrb {
+  bottom: 0px;
+}
+
+#smfrt {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 40;
+}
+
+
+#thw {
+  position: relative;
+  padding: 10px 0 0 10px;
+}
+
+#tht, #stht {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  right: 10px;
+  height: 10px;
+  background-image: url('/images/window/top.png');
+  z-index: 10;
+}
+
+#thlt, #sthlt {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}
+
+#sthrt {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+}
+
+#thrt {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+}
+
+#mainheaderwrap {
+  margin: 0 10px 0 10px;
+  z-index: 10;
+  position: relative;
+}
+
+#tablecontentdiv {
+  position: absolute;
+  /*position: relative;*/
+  top: 10px;
+  bottom: 10px;
+  left: 0px;
+  right: 0px;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden  !important;
+}
+
+/* таблица со всякими там нюансами*/
+.st {
+  font-size: 12px;
+}
+
+#t1 thead td {
+  border-top: 1px solid #ff0;
+}
+
+.st td {
+  height: 19px;
+  overflow: visible;
+  white-space: normal;
+  vertical-align: middle;
+  text-align: center;
+  border: 0px solid #ff0;
+  border-left: 1px solid #ff0;
+}
+
+.st tr td:first-child div {
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+.st td table td {
+  font-size: 12px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.st .altrow td {
+  background-color: #eee;
+}
+
+/* вывод заказов(а) */
+#tablecontent, #tablecontent2, #tableheader, #tableheader-action, #tablecontent-action, .tableheader {
+  position: relative;
+  border-bottom: 1px solid #ff0;
+  table-layout: fixed;
+  white-space: normal;
+  margin: 0px 0px 0px 0px;
+  left: 0px;
+}
+
+#tablecontent-action, #tablecontent-info, #tablecontent-wares{
+  border-bottom: 0px solid #ff0;
+}
+
+#tablecontent2 {
+  table-layout: auto;
+  width: 100%;
+  white-space: normal;
+}
+
+.tableheader, #tableheader,#tableheader-action {
+  border-top: 1px solid #ff0;
+  height: 19px;
+  left: 0px;
+  /*table-layout: fixed;*/
+  clear: both;
+}
+
+.tableheader, #tableheader, .tableheader, #WSRtableheader, #t1 thead, #tableheader-action {
+  background-image: url('images/gray_line.png');
+}
+
+.tableheader td, #tableheader td,#tableheader-action td, #WSRtableheader td, #t1 thead td, #t1 thead tr {
+  background-color: transparent;
+  background-image: none;
+}
+
+
+.tableheader td, #tableheader td, #tableheader-action td{
+  white-space: nowrap;
+}
+/* конец - вывод заказов */
+
+h1 {
+  font-size: 14px;
+  height: 20px;
+  padding: 5px 0px 0px 10px;
+  background-image: url('images/gray_line.png');
+  text-transform: uppercase;
+  clear: both;
+}
+
+h1 a b{
+  color: #F00;
+}
+
+#mainheaderwrap h1 {
+  margin-top: 0px;
+}
+
+
+#jobframe {
+         display: none;
+/*  position: absolute;
+  left: -100px;
+  top: -100px;
+  z-index: 2000; */
+}
+
+.abgslide1 {
+         display: block;
+         width: 16px;
+         height: 16px;
+}
+
+.abgslide:hover, .abgslide1:hover  {
+         background-position: 100% 0;
+}
+
+
+/* +++  обрамление всплывающих окон  +++ */
+.swouter {
+         position: relative;
+         padding: 10px;
+}
+
+.swinner {
+         position: relative;
+}
+
+.swmiddle {
+         position: relative;
+         margin: 0px 0 10px 10px;
+}
+
+.swlt, .swrt, .swlb, .swrb {
+         position: absolute;
+  background-color: #797878;
+}
+
+.swlt {
+         top:  0px;
+         left:  0px;
+}
+
+.swrt {
+         top:  0px;
+         right:  0px;
+}
+
+.swlb {
+         bottom:  0px;
+         left:  0px;
+}
+
+.swrb {
+         bottom:  0px;
+         right:  0px;
+}
+
+.swt {
+         position: absolute;
+         top:  0px;
+         left:  10px;
+         right:  10px;
+  background-image: url('/images/window/top.png');
+  height: 10px;
+}
+
+.swb {
+         position: absolute;
+         bottom:  0px;
+         left:  10px;
+         right:  10px;
+  background-image: url('/images/window/bottom.png');
+  height: 10px;
+}
+
+.swl {
+         position: absolute;
+         left:  0px;
+         bottom:  10px;
+         top:  10px;
+  background-image: url('/images/window/left.png');
+  width: 10px;
+}
+
+.swr {
+         position: absolute;
+         right:  0px;
+         bottom:  10px;
+         top:  10px;
+  background-image: url('/images/window/right.png');
+  width: 10px;
+}
+/* ---  обрамление всплывающих окон  --- */
+.aperiod, #fagd ul li a {
+         color: #000;
+         text-decoration: none;
+}
+
+.aperiod:hover, #fagd ul li a:hover {
+         text-decoration: underline;
+}
+
+#fagd ul li a:hover {
+         background-color: #000;
+         color: #fff;
+}
+
+#fagd {
+  position: absolute;
+  width: 200px;
+  display: none;
+  background-color: #fff;
+  z-index: 150;
+  font-size: 12px;
+  border: 1px solid #000;
+  overflow-x: hidden;
+}
+
+#fagd ul {
+         margin: 0;
+         padding: 0;
+}
+
+#fagd ul {
+         white-space: nowrap;
+}
+
+#filterdiv div:first-child table tr td:first-child {
+         text-align: right;
+         font-weight: bold;
+}
+
+#waresearchdiv {
+/*
+  position: absolute;
+  top: 4px;
+  left: 480px;
+  width: 600px;
+  height: 67px;
+  z-index: 100;
+  font-size: 12px;
+*/
+  position: absolute;
+  top: 52px;
+  left: 480px;
+  height: 24px;
+  z-index: 100;
+  font-size: 12px;
+
+}
+#waresearchdiv table{
+  margin: 0px;
+  padding: 0px;
+  border-collapse: collapse;
+}
+
+.abANew {
+  display: block;
+  position: absolute;
+  top: 0px;
+  height: 16px;
+  width: 16px;
+  background-position: 0 0;
+  text-decoration: none;
+  padding: 0px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.abA:hover, .abANew:hover {
+  background-position: -100% 0;
+}
+
+#WSRtablecontent tr td:first-child div,  #gbanalogtable tr td:first-child div,  #onanalogtable tr td:first-child div{
+  margin:  0px;
+  padding: 0px;
+  position: relative;
+  width: 100%;
+}
+
+
+/*
+.anrow td:first-child, .analtrow td:first-child {
+  background-image: url('images/anback.png');
+  background-repeat: repeat-y;
+}
+.anrow td.first:first-child, .analtrow td.first:first-child {
+  background-image: url('images/anback.png');
+  background-repeat: repeat-y;
+}
+*/
+
+
+.divh1 {
+  position: absolute;
+  overflow: hidden;
+}
+
+div.inborder {
+  position: absolute;
+  top: 35px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  overflow: auto;
+  max-height: 90px;
+}
+
+div.inborder .st {
+  width: 100%;
+}
+
+div.inborder .st td {
+  border-width: 0px;
+}
+
+.divh1 h1 {
+         position: absolute;
+         left: 0px;
+         right: 0px;
+         margin-top: 10px;
+         white-space: nowrap;
+         overflow: hidden;
+}
+
+td.b {
+         font-weight: bold;
+}
+
+td.r {
+  text-align: right;
+}
+
+/* +++ treeview +++ */
+.treeview { padding: 0; clear: both; font-family: Arial, sans-serif; width: 100%; }
+.treeview * { font-size: 12px; }
+/*.treeview * { font-size: 100.1%; }*/
+.treeview ul
+{
+overflow: hidden; width: 100%; margin: 0; padding: 0 0 1.5em 0;
+list-style-type: none;
+}
+.treeview ul ul { overflow: visible; width: auto; margin: 0 0 0 0; padding: 0 0 0 0.75em; }
+/* класс для ul после которых нет li в родительских ветках */
+.treeview ul.l { border-left: 1px solid; margin-left: -1px; }
+.treeview li.cl ul { display: none; }
+.treeview li { margin: 0; padding: 0; }
+.treeview li li { margin: 0 0 0 0.5em; border-left: 1px dotted; padding: 0; }
+.treeview li div { position: relative; height: 1.6em; min-height: 17px; //height: 1.3em; }
+.treeview li li div { border-bottom: 1px dotted; }
+.treeview li p
+{
+position: absolute; z-index: 1; top: 0.8em; //top: 0.65em; left: 1.75em;
+width: 100%/*right: 5px*/ ; margin: 0;  padding: 0;
+}
+.treeview a { padding: 0.1em 0.2em; white-space: nowrap; //height: 1px;}
+.treeview img.i
+{
+border-right: 2px solid; border-bottom: 0.5em solid;
+margin-bottom: -0.5em; vertical-align: middle;
+}
+.treeview a.sc
+{
+position: absolute; top: 0.06em;
+margin-left: -1em; padding: 0; text-decoration: none;
+}
+/* colors */
+.treeview li p,
+.treeview img.i,
+.treeview .sc
+{ background: #ddd; }
+.treeview ul.l,
+.treeview li p,
+.treeview img.i
+/*{ border-color: #f5f5ea; }*/
+.treeview ul li li,
+.treeview ul li li div
+{ border-color: #999999; }
+.treeview a,
+.treeview a.sc,
+.treeview a.sc:hover, .st td a, a.tablabel, #waregrouplistdiv a
+{ color: #000000;  text-decoration: none;}
+.treeview a:hover,.st td a:hover, a.tablabel:hover, #waregrouplistdiv a:hover
+{ color: #cc0000;  text-decoration: underline;}
+
+.tlactive {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+.noactive a.tablabel {
+  color: #ccc !important;
+}
+
+.noactive a:hover{
+  text-decoration: none !important;
+}
+
+.treeview a.fatbrowntext {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+
+a[id^="tv_a2_"] {
+  font-size: 12px;
+}
+
+/* --- treeview --- */
+
+#treenodeedit tr:float-xchild td {
+  text-align: right;
+}
+
+#treenodeedit td input[type="text"] {
+  width: 600px;
+}
+
+.fatbrowntext {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+#easyTooltip{
+    padding:5px;
+    border:1px solid #999999;
+    background:#f1f1f1;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    color: #666666;
+    filter:alpha(opacity=90);
+    -moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
+    font-size: 10px;
+    z-index: 10000;
+}
+
+#comparetable td {
+  width: 350px;
+  vertical-align: top;
+  text-align: center;
+}
+#comparetable tr td:first-child  {
+  width: auto;
+  text-align: right;
+}
+
+span.brandspan {
+  position: absolute;
+  top: 1px;
+  right: 82px;
+}
+
+span.brandspan img{
+  height: 16px;
+}
+
+.fancybox-wrap a.tablabel, #motoattrlisttable a.tablabel {
+  position: static;
+  display: inline;
+  text-align: left;
+  width: auto;
+  font-weight: normal;
+}
+
+.mark {
+  border: 1px blue solid !important;
+}
+
+
+#modeldata td  {
+  text-align: left;
+}
+
+#modeldata tr td:first-child  {
+  text-align: right;
+}
+
+
+#chpassdiv {
+  position: relative;
+  width: 225px;
+/*  height: 125px;
+  left: 10px;
+  top: 80px;
+  padding: 9px;
+  z-index: 100;
+*/
+  text-align: left;
+  color: black;
+  font-size: 11px;
+  margin: 0px;
+/*  overflow: hidden;
+
+  border: 1px solid black;
+  background-color: #CECECE;
+*/
+}
+
+#treeview img {
+  cursor: pointer;
+}
+
+#waregrouplistdiv {
+  font-size: 12px;
+  overflow-y: auto;
+}
+
+.bottombuttonsdiv{
+  text-align: center;
+}
+
+#criteriatbl td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+#criteriatbl tr td:first-child {
+  border-left: 1px solid black;
+}
+
+#criteriatbl tr:first-child td {
+  border-top: 1px solid black;
+}
+.ui-autocomplete-category {
+  font-weight: bold;
+}
+.ui-menu .ui-menu-item a {
+    line-height: 1;
+}
+
+.ui-autocomplete {
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.accinputtext {
+  width: 52px;
+  text-align: right;
+}
+
+#addtinvtbl td, #tinvfiltertable td {
+  white-space: nowrap;
+}
+
+#accannulbtn:hover img {
+  background-position: 100% 0;
+}
+
+#aenotificationdiv td {
+  vertical-align: top;
+}
+
+#selectimagesdiv{
+padding-top:5px;
+padding-left:10px;
+text-align:center;
+clear:left;
+
+}
+
+#selectimagesdivcaption{
+padding-left:10px;
+padding-top:10px;
+height:30px;
+float:left;
+font-size: 10px;
+font-weight: bold;
+}
+
+#deletefilenameicon{
+background-image: url("images/wdell.png");
+}
+
+a.imagelabel
+{ color: #000000;  text-decoration: none;}
+
+a.imagelabel:hover
+{ color: #cc0000;  text-decoration: underline;}
+
+
+#iconimg{
+ position: absolute; 
+ right: 5px; 
+ top: 103px; 
+ display: block; 
+ max-width: 300px; 
+ max-height: 160px;
+}
+
+#dopinfodiv10{
+ margin-bottom: 10px;
+}
+
+#viewordersubtopicdiv{
+ float: left;
+}
+
+#waremodellisttable td {
+  min-width: 40px;
+}
+
+#waremodellisttable td:last {
+  min-width: 100px;
+}
+
+div#jqdialog {
+    max-height: 600px;
+    overflow: auto;
+}
+
+#contactsdiv table#tablecontent2{
+ border: 0px;
+}
+
+#contactstablecontentdiv{
+  height: 90px;
+  max-height: 90px;
+  overflow: auto;
+}
+
+#documentstablecontentdiv{
+  height:140px;
+  overflow: auto;
+}
+
+#contactsdiv{
+ overflow: hidden;
+ height: 130px;
+ max-height: 130px;
+}
+
+#documentsdiv{
+ overflow: hidden;
+ height: 170px;
+ max-height: 170px;
+}
+
+#firmsdiv{
+ max-height: 135px;
+}
+
+#mpbiinfotable td {
+  text-align: right;
+}
+
+#mpbiinfotable tr td:first-child {
+  text-align: left;
+}
+
+.abANewAction {
+    background-position: 0 0;
+    cursor: pointer;
+    display: inline-block;
+    /*float: left;*/
+    height: 16px;
+    margin-left: 5px;
+    overflow: hidden;
+    padding: 0;
+    text-decoration: none;
+    top: 3px;
+    width: 40px;
+}
+
+.abANewAction:hover {
+  background-position: -100% 0;
+}
+
+.abANewAction:active {
+  background-position: -200% 0;
+}
+
+div#searchres{
+ max-height: none;
+}
+
+div#manufdivWrap div.inborder, div#modellinedivWrap div.inborder, div#modeldivWrap div.inborder{
+  max-height: none;
+}
+
+#mpbiinfotable tr td, #mpbiinfotable tr th {
+  border-right: black solid 1px;
+  border-bottom: black solid 1px;
+}
+
+#mpbiinfotable tr:first-child td, #mpbiinfotable tr:first-child th {
+  border-top: black solid 1px;
+}
+
+#mpbiinfotable tr td:first-child, #mpbiinfotable tr th:first-child {
+  border-left: black solid 1px;
+}
+
+#mpbiinfotable {
+ border-spacing: 0px;
+}
+
+div#documentsdivWrap div.inborder{
+ top: 45px;
+}
+div#documentsdivWrap h1{
+height: 26px;
+}
+
+table#documentstable td a{
+  cursor: pointer;
+}
+
+#ordernumh1,#acc-firmname,#gboutinvoice-firmname {
+ float: right;
+ font-family: Arial;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 0 16px 0 0;
+ position: relative;
+ text-align: right;
+ top: 5px;
+}
+
+#acccomdiv {
+    clear: both;
+    margin-left: 10px;
+    margin-top: 5px;
+    overflow-y: auto;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+#ordernumh1.doctitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#tablecontent.showdoc td{
+  border-bottom: 1px solid #ff0;
+}
+
+#tablecontent2.showdoc, #tablecontent.showdoc{
+  border-bottom: 0px ;
+}
+
+#tablecontent.showdoc tr:last-child{
+  border-bottom: 0px;
+}
+
+table#contactstableheader tr.header td, table#documentstableheader td{
+  border-right  : 1px solid #ff0;
+}
+
+table#contactstableheader, table#documentstableheader{
+  border-spacing: 0px;
+  border-top: 1px solid #ff0;
+  border-left: 1px solid #ff0; 
+  border-bottom: 1px solid #ff0; 
+}
+
+table#contactstable , table#documentstable{
+ border-spacing: 0px;
+ border-left: 1px solid #ff0; 
+}
+
+#contactstable td{
+  border-right  : 1px solid #ff0;
+  border-bottom  : 1px solid #ff0;
+}
+
+#documentstable td{
+  border-right  : 1px solid #ff0;
+  border-bottom  : 1px solid #ff0;
+}
+
+table#documentstableheader td{
+  text-align: center;
+  vertical-align: middle;
+}
+
+div#tableheaderdiv.showdoc{
+ margin: 0 5px;
+}
+
+div#tablecontentdiv.showdoc{
+ margin: 0 5px;
+}
+
+#tablecontentdiv.show-content-motul-site{
+  overflow-y: none;
+}
+
+#tablecontentdiv-action{
+  overflow-y: scroll;
+}
+
+#tablecontent-action a.del, #tablecontent-wares a.del{
+ margin-left: 10px; 
+}
+
+#TinyEditActionFilesDIV span{
+ font-size: 14px;
+ font-weight: normal;
+}
+
+#TinyEditActionFilesDIV form.motul-action-main-form{
+  display: inline-block;
+  /*position: relative;
+  top: -65%;*/
+  width: 100%;
+}
