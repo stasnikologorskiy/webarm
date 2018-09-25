@@ -12,7 +12,8 @@ var pcVINmailFirmClass_list=61;
 var pcVINmailEmpl_list=62;
 var pcVINmailFirmTypes_list=63;
 var pcPriceLoadFirmClasses=70;
-
+var flFirmLimits=false;
+var flMotulPLsys=false;
 
 
 
@@ -47,8 +48,6 @@ var CurrTemplInSearch = '';
 var selectTreeColor='#CC0000';
 var NodeWithModel = null;
 var flNewModeCGI=false;
-var flPictNotShow=false;
-
 
 var modelbywarename='';
 var filtersuff='';
@@ -295,90 +294,6 @@ function initFunc() {
   demanddopdescr=(!one_line) && (page=="accountsreestr") && ($("#forfirmid").length>0) && ($("#forfirmid").val()>0);
 //  setInterval(function(){ec('checklinks23loaded', '', 'anbj')},3000000);
 }
-/*
-
-// окно поверх стандартного фансибокса
-function jqsw(winid, winwidth, wintitle) {
-  $(function() {
-    $(winid).dialog({
-      autoOpen: true,
-      show: 'fade',
-      draggable: true,
-      hide: 'fade',
-      zIndex: '1010',
-      width: winwidth,
-      title: wintitle,
-      buttons: {
-        "Закрыть окно" : function() {
-          $(this).dialog("close");
-        }
-      }
-    });
-  });
-}
-
-// sfba -  send formbyajax
-function sfba(form) {
-//alert($(form).serialize().length);
-  startLoadingAnimation();
-  $.ajax({
-    url: ((form.action)?form.action:scriptname+"/abj"),
-//    type: ((form.method)?form.method:"post"),
-    type: "post",
-    data: $(form).serialize(),
-
-    complete: function(obj, stat) {
-//      alert(obj.responseText);
-      stopLoadingAnimation();
-    },
-
-    dataType: "script"
-  });
-  return false;
-}
-// ec - execute command
-function ec(command, data, action) {
-  if (command!='checklinks23loaded') startLoadingAnimation();
-  $.ajax({
-    url: scriptname+"/"+action,
-    type: "post",
-    data: "act="+command+"&"+data,
-    complete: function(obj, stat) {
-      stopLoadingAnimation();
-      if (command=='commonimport') alert(obj.responseText);
-    },
-    dataType: "script"
-  });
-}
-function startLoadingAnimation() {// - функция запуска анимации
-  $.fancybox.showLoading();
-}
-
-function stopLoadingAnimation() {// - функция останавливающая анимацию
-  $.fancybox.hideLoading();
-}
-
-// sw - showwindow - вывод содержимого в окне с закругленными краями
-function sw(content, modal_) {
-  modal_ = ((modal_==undefined)?true:modal_);
-  var s='';
-  s+='<div class=swouter>';
-  s+='<div class=swt></div><div class=swl></div><img class=swlt src="/images/window/corner-top-left.png"><img class=swrt src="/images/window/corner-top-right.png">';
-  s+='<div class=swb></div><div class=swr></div><img class=swlb src="/images/window/corner-bottom-left.png"><img class=swrb src="/images/window/corner-bottom-right.png">';
-  s+='<div class=swinner>'+content+'</div>';
-  s+='</div>';
-//         $.fancybox.open(s, {'modal': modal_, 'padding': 0});
-  $.fancybox.open(content, {'type' : 'html'});
-
-}
-
-//перекрашивает таблицу в полоску
-function zebratable(tbl) {
-  $(tbl).find('tr:even').removeClass('altrow');
-  $(tbl).find('tr:odd').addClass('altrow');
-}
-
-*/
 
 // ecg - execute command GET
 function ecg(command, data, action) {
@@ -529,7 +444,7 @@ function setperiod(period) {
 function getfirmsasgoogle(input) {
   var s=input.value;
   if (s.length>2) {
-    ec('getfirmlist', 'templ='+s+'&inputid='+input.id, 'abj');
+    ec('getfirmlist', 'templ='+s+'&inputid='+input.id, 'newbj');
   } else {
     $("#fagd").css("display","none");
   }
@@ -1034,7 +949,7 @@ function aemodellineNew(_id, _pid, _sys, _name, _top, _vis) {
   sw(s, false);
 }
 
-function addfirmrow(_id, _uppername, _name, _prefix) {
+function addfirmrow(_id, _uppername, _name, _prefix,_limit) {
   var row=tbl.insertRow(-1);
 
   row.id='firmtr'+_id;
@@ -1049,13 +964,13 @@ function addfirmrow(_id, _uppername, _name, _prefix) {
   newcell=row.insertCell(-1);
   newcell.style.textAlign='left';
   newcell.innerHTML='<a href="#" onclick=\'ec("loadpersons", "id='+_id+'", "mppactions");\'>'+_name+'</a>';
-
+  
   newcell=row.insertCell(-1);
   newcell.style.textAlign='left';
-  newcell.innerHTML=_prefix;
+  newcell.innerHTML=_limit;
 }
 
-function addfirmrowNew(_id, _uppername, _name, _prefix) {
+function addfirmrowNew(_id, _uppername, _name, _prefix,_limit) {
   var row=tbl.insertRow(-1);
 
   row.id='firmtr'+_id;
@@ -1074,9 +989,16 @@ function addfirmrowNew(_id, _uppername, _name, _prefix) {
   newcell=row.insertCell(-1);
   newcell.style.textAlign='left';
   newcell.innerHTML=_prefix;
+  
+  if (flFirmLimits){
+    newcell=row.insertCell(-1);
+    newcell.style.textAlign='left';
+    newcell.style.color="red";
+    newcell.innerHTML=_limit;
+  }
 }
 
-function addpersonrow(_id, _pid, _super, _name, _post, _phone, _email, _login, _blocked, _showunblockbutton) {
+function addpersonrow(_id, _pid, _super, _name, _post, _phone, _email, _login, _blocked, _showunblockbutton,listbtn) {
   var row=tbl.insertRow(-1);
 
   row.id='persontr'+_id;
@@ -1136,6 +1058,24 @@ function addpersonrow(_id, _pid, _super, _name, _post, _phone, _email, _login, _
   newcell.innerHTML=(_name)?_name:"<span style='color: red;' title='Отсутствует имя! Контактному лицу без имени нельзя присвоить логин!' >Отсутствует имя!</span>";
 
   newcell=row.insertCell(-1);
+  if (_blocked) {
+    if (_showunblockbutton) {
+      newcell.innerHTML="<input type=button id=unblockbtn"+_id+" value='Разблокировать' onclick=\"ecfull('unblockwebuser', 'id="+_id+"', 'difdict', 'post', true, 'Вы действительно хотите разблокировать пользователя?');\">";
+    } else {
+      newcell.innerHTML="Заблокирован";
+    }
+  }
+  
+  newcell=row.insertCell(-1);
+  if ((listbtn)  && (_blocked)){
+    s1='<button class="blocks-history-btn" onclick="ec(\'getlisthistoryblocks\',\'emplid='+_id+'\',\'newbj\');" title="История блокировок" >'+
+       '  <img src="/images/tr.gif" style="height: 16px; width: 16px; background-image: url(\'/images/wnew.png\'); right: 16px;\">'+
+       '</button>';
+    newcell.innerHTML=s1;
+   
+  }
+ 
+  newcell=row.insertCell(-1);
   newcell.style.textAlign='left';
 //  newcell.innerHTML=_post;
   newcell.innerHTML=(_post)?_post:"<span style='color: red;' title='Отсутствует должность! Контактному лицу без должности нельзя присвоить логин!' >Отсутствует должность!</span>";
@@ -1152,16 +1092,6 @@ function addpersonrow(_id, _pid, _super, _name, _post, _phone, _email, _login, _
   newcell=row.insertCell(-1);
   newcell.style.textAlign='left';
   newcell.innerHTML=_login;
-
-  newcell=row.insertCell(-1);
-  if (_blocked) {
-    if (_showunblockbutton) {
-      newcell.innerHTML="<input type=button id=unblockbtn"+_id+" value='Разблокировать' onclick=\"ecfull('unblockwebuser', 'id="+_id+"', 'difdict', 'post', true, 'Вы действительно хотите разблокировать пользователя?');\">";
-    } else {
-      newcell.innerHTML="Заблокирован";
-    }
-  }
-
 }
 
 function addtraidpointrow( _name, _adr) {
@@ -1212,33 +1142,24 @@ function addcontractrow(Name,LegalFirmName,PayType,dprtName,sCred,DebtSum,OrderS
   //newcell.style.width='19px';
   newcell.innerHTML=dprtName;
   
-  if (flCredProfile){
-    if (is_united==1){
-      newcell=row.insertCell(-1);
-      newcell.style.textAlign='center';
-      newcell.style.verticalAlign='middle';
-      //newcell.style.width='19px';
-      newcell.innerHTML=sCred;
-      newcell.rowSpan=rowspan;
-    }
-  }
-  else{
+  if (is_united==1){
     newcell=row.insertCell(-1);
     newcell.style.textAlign='center';
     newcell.style.verticalAlign='middle';
     //newcell.style.width='19px';
     newcell.innerHTML=sCred;
+    newcell.rowSpan=rowspan;
   }
 
   
-  if ((flCredProfile) && (is_united==1)){
-    newcell=row.insertCell(-1);
-    newcell.style.textAlign='center';
-    newcell.style.verticalAlign='middle';
-    //newcell.style.width='19px';
-    newcell.innerHTML=ProfDebtAll;
-    newcell.rowSpan=rowspan;
-  }
+ if (is_united==1){
+   newcell=row.insertCell(-1);
+   newcell.style.textAlign='center';
+   newcell.style.verticalAlign='middle';
+   //newcell.style.width='19px';
+   newcell.innerHTML=ProfDebtAll;
+   newcell.rowSpan=rowspan;
+ }
 
   
   newcell=row.insertCell(-1);
@@ -1335,15 +1256,13 @@ function addcontractrowHeader() {
   newcell.innerHTML="Кред.условия";
   newcell.title="Сумма кредита / Отсрочка";
   
-  if (flCredProfile){
-    newcell=row.insertCell(-1);
-    newcell.style.textAlign='center';
-    newcell.style.verticalAlign='middle';
-    //newcell.style.width='19px';
-    newcell.innerHTML="Общий долг";
-    newcell.title="Долг по профилю";
-  }
- 
+  newcell=row.insertCell(-1);
+  newcell.style.textAlign='center';
+  newcell.style.verticalAlign='middle';
+  //newcell.style.width='19px';
+  newcell.innerHTML="Общий долг";
+  newcell.title="Долг по профилю";
+   
   newcell=row.insertCell(-1);
   newcell.style.textAlign='center';
   newcell.style.verticalAlign='middle';
@@ -1634,7 +1553,7 @@ function annregord(id) {
 }
 
 function procregord(id, login) {
-  if ($("#selfirm")[0].disabled)  ec('getfirmlist', 'selfirm=selfirm&selperson=selperson&settrigger=1', fnIfStr(flNewModeCGI,'newbj','mppactions'));
+  if ($("#selfirm")[0].disabled)  ec('getfirmlist', 'selfirm=selfirm&selperson=selperson&settrigger=1', 'newbj');
   $("#divtabl1 input[name^='id']").val(id);
   $("#selpersonlogin").val(login);
   $("#selfirm").val('');
@@ -2650,6 +2569,25 @@ function getreport(){
    $("#jobframe")[0].src=scriptname+"/ifbj?act=getbasestamp&="+$("#exportform").serialize();
 }
 
+// sfba -  send formbyajax
+function sfbaNew(form, thread) { //для новой системы работы CGI
+//alert('$(form).serialize()');
+  if (!thread) thread="newbj";
+  startLoadingAnimation();
+  $.ajax({
+    url: ((form.action)?form.action:scriptname+"/"+thread),
+    type: "post",
+    data: $(form).serialize(),
+    complete: function(obj, stat) {
+      stopLoadingAnimation();
+      //if (command=='senderrormessage') alert(obj.responseText);
+    },
+    dataType: "script"
+  });
+  return false;
+}
+
+
 function openbrandeditwindow(tr) {
   var title='Редактирование бренда '+tr.cells[0].innerHTML;
   var text='';
@@ -2665,9 +2603,7 @@ function openbrandeditwindow(tr) {
   link=(link.length?link[0].innerHTML:'');
   text+='<tr><td style="white-space: nowrap">Ссылка для перехода: http://</td><td><input style="width: 400px;" type=text name=brandaddrwww id=brandaddrwww value="'+link+'"></td></tr>';
   text+='<tr><td>Не показывать в прайсе</td><td><input type=checkbox name=hideinprice id=hideinprice'+(($(tr.cells[4]).attr("value")=="true")?" checked":"")+'></td></tr>';
-  if (flPictNotShow){
-    text+='<tr><td>Не показывать рисунки TD</td><td><input type=checkbox name="hidepintTD" id=hideinprice'+(($(tr.cells[5]).attr("value")=="true")?" checked":"")+'></td></tr>';
-  }
+  text+='<tr><td>Не показывать рисунки TD</td><td><input type=checkbox name="hidepintTD" id=hideinprice'+(($(tr.cells[5]).attr("value")=="true")?" checked":"")+'></td></tr>';
   text+='</table>';
   text+='</form>';
 
@@ -2710,9 +2646,7 @@ function openbrandeditwindowNew(tr) {
   link=(link.length?link[0].innerHTML:'');
   text+='<tr><td style="white-space: nowrap">Ссылка для перехода: http://</td><td><input style="width: 400px;" type=text name=brandaddrwww id=brandaddrwww value="'+link+'"></td></tr>';
   text+='<tr><td>Не показывать в прайсе</td><td><input type=checkbox name=hideinprice id=hideinprice'+(($(tr.cells[4]).attr("value")=="true")?" checked":"")+'></td></tr>';
-  if (flPictNotShow){
-    text+='<tr><td>Не показывать рисунки TD</td><td><input type=checkbox name="hidepintTD" id=hidepintTD'+(($(tr.cells[5]).attr("value")=="true")?" checked":"")+'></td></tr>';
-  }
+  text+='<tr><td>Не показывать рисунки TD</td><td><input type=checkbox name="hidepintTD" id=hidepintTD'+(($(tr.cells[5]).attr("value")=="true")?" checked":"")+'></td></tr>';
   text+='</table>';
   text+='</form>';
 
@@ -3619,7 +3553,12 @@ function fillHeaderForMotulSiteWares(){
   
     newcell=newrow.insertCell(-1);
     newcell.innerHTML = 'Заголовок связанной акции';
-   
+    
+    if (flMotulPLsys){
+      newcell=newrow.insertCell(-1);
+      newcell.innerHTML = 'Направление';  
+    }
+
     newcell=newrow.insertCell(-1);
     newcell.innerHTML = '<input value="Добавить" title="Добавить продукт" onclick="editWareMotulRecord(-1,\'TinyEditActionFilesDIV\',\'tinyeditorinfo\',\'add\');" type="button">';
   }
@@ -3654,6 +3593,13 @@ function fillBodyForMotulSiteWares(){
      $(newcell).attr("class","with-action");
      $(newcell).attr("action-code",TStream.arrMotulWares[j].ActionCode);
      newcell.innerHTML = TStream.arrMotulWares[j].ActionHeader;
+     
+     if (flMotulPLsys){
+       newcell=newrow.insertCell(-1);
+       $(newcell).attr("class","dirrect");
+       $(newcell).attr("dirrect-code",TStream.arrMotulWares[j].SysCode);
+       newcell.innerHTML = TStream.arrMotulWares[j].SysName;
+    }
 
      newcell=newrow.insertCell(-1);
      $(newcell).attr("class","action");
@@ -3835,6 +3781,13 @@ function editWareMotulRecord(elem,divname,editorname,act){
         $("#join-action-select").append( $('<option value="'+TStream.arrMotulAction[j].ActionCode+'">'+TStream.arrMotulAction[j].ActionHeader+'</option>'));
       }
     }
+    if (flMotulPLsys){
+      $("#direct-choice-select").empty();
+      $("#direct-choice-select").append($('<option value="0"></option>'));
+      $("#direct-choice-select").append( $('<option value="1">Авто</option>'));
+      $("#direct-choice-select").append( $('<option value="2">Мото</option>'));
+      $("#direct-choice-select").append( $('<option value="4">Грузовики</option>'));
+    }
 
     if (act=='edit'){
       $("div.wareinfoimgdiv").css("display","block");
@@ -3865,6 +3818,15 @@ function editWareMotulRecord(elem,divname,editorname,act){
       $('#ware-code').val(TStream.arrMotulWares[num].WareCode);
       $('#ware-code-for-image').val(TStream.arrMotulWares[num].WareCode);
       $('#action-todate').val('');
+     if (flMotulPLsys){
+       $('#direct-choice-code').val(TStream.arrMotulWares[num].SysCode);
+       if (TStream.arrMotulWares[num].SysCode !=0){
+         $("#direct-choice-select [value='"+TStream.arrMotulWares[num].SysCode+"']").attr("selected", "selected");
+       }
+       else{
+          $("#direct-choice-select [value='0']").attr("selected", "selected");
+       }
+      }
       $('#action-is-plex').attr('checked',false);
       $('#action-is-plex').css('display','none');
       $('#action-is-chex').attr('checked',false);
@@ -3882,6 +3844,9 @@ function editWareMotulRecord(elem,divname,editorname,act){
       $('#join-action-code').val('');
       $('#num-action-record').val('');
       $('#ware-code-for-image').val('');
+      if (flMotulPLsys){
+        $('#direct-choice-code').val('');
+      }
       $('#header-action-date-div').css('display','none');
       $('#header-action-div span.action-check-span').css('display','none');
       $('#header-action-div input').val('');
@@ -3949,6 +3914,10 @@ function editRowForMotulSiteWaresTable(num){
   var tr=$("#tr-motul-wares-"+TStream.arrMotulWares[num].WareCode);
   tr.find("td.name").html('<span >'+TStream.arrMotulWares[num].WareName+'</span>');
   tr.find("td.with-action").html(TStream.arrMotulWares[num].ActionHeader);
+  if (flMotulPLsys){
+    tr.find("td.dirrect").html(TStream.arrMotulWares[num].SysName);
+    tr.find("td.dirrect").attr("dirrect-code",TStream.arrMotulWares[num].SysCode);
+  }
 }
 
 function addRowForMotulSiteActionTable(num){
@@ -4018,6 +3987,13 @@ function addRowForMotulSiteWaresTable(num){
      $(newcell).attr("class","with-action");
      $(newcell).attr("action-code",TStream.arrMotulWares[num].ActionCode);
      newcell.innerHTML = TStream.arrMotulWares[num].ActionHeader;
+  
+    if (flMotulPLsys){
+       newcell=newrow.insertCell(-1);
+       $(newcell).attr("class","dirrect");
+       $(newcell).attr("dirrect-code",TStream.arrMotulWares[num].SysCode);
+       newcell.innerHTML = TStream.arrMotulWares[num].SysName;
+    }
 
      newcell=newrow.insertCell(-1);
      $(newcell).attr("class","action");
@@ -4095,4 +4071,23 @@ function prepwareactionfiles() {
 function changeMotulJoinWaresAction(){
   $('#join-action-code').val($("#join-action-select option:selected").val());
   $('#join-action-header').val($("#join-action-select option:selected").text());
+}
+
+function changeMotulJoinWaresDirect(){
+  $('#direct-choice-code').val($("#direct-choice-select option:selected").val());
+}
+
+function fillTableBlocksHistory(){
+  if (TStream.arlen>0){
+    var s='<table class="list-history-blocks-table st">';
+    var  altrow=true;  
+    for (j=0; j<TStream.arlen; j++){
+      s+='<tr '+fnIfStr((j>1),(altrow?'class="altrow"':''),'')+' >';
+      s+='  <td '+fnIfStr((j>1),'class="left"','')+'">'+TStream.artable[j].BlockInfo+'</td>';  
+      s+='</tr>';
+      altrow=!altrow;
+    }  
+    s+='</table>';
+    jqswtext('Просмотр',s);
+  }
 }

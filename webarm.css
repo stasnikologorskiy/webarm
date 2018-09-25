@@ -1219,3 +1219,20 @@ div#tablecontentdiv.showdoc{
   top: -65%;*/
   width: 100%;
 }
+
+.blocks-history-btn{
+  cursor: pointer;
+  padding: 0px;
+}
+
+table.list-history-blocks-table td{
+  border-width: 1px;
+}
+
+table.list-history-blocks-table td.left{
+  text-align: left;
+}
+
+.direct-choice-span{
+  margin-left: 20px;
+}
